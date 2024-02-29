@@ -22,7 +22,6 @@
 </style>
 
 
-<meta name="facebook-domain-verification" content="mlk59ybu44651lzcbhhxjfl8vfae8q" />
 
 
 <style>
@@ -46,6 +45,26 @@
 <style>
  ::selection {color: #ffffff; background: #333333;}
  </style>
+
+<script>
+  function authenticate() {
+    // Prompt the user for authentication
+    var username = prompt("Enter your username:");
+    var password = prompt("Enter your password:");
+
+    // Check if the username and password are correct (this is just a basic example)
+    if (username === "admin" && password === "admin") {
+      // Redirect to index.html
+      window.location.href = "index.html";
+    } else {
+      // If authentication fails, display an error message
+      alert("Authentication failed. Please try again.");
+    }
+  }
+
+  // Call the authenticate function when the page loads
+  authenticate();
+</script>
 
  </head>
  <body>
