@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Registration Page</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .form {
+      width: 300px;
+      margin: auto;
+    }
+
+    .form-control {
+      margin-bottom: 15px;
+    }
+
+    .form-control label {
+      display: block;
+      text-align: left;
+    }
+
+    .form-control input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    .button{
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: blink;
+     padding: 8px;
+    }
+    .button:hover {
+      background-color: #17d3e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Login Form -->
+    <form id="loginForm" class="form">
+      <h2>Login</h2>
+      <div class="form-control">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+      </div>
+      <div class="form-control">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+      </div>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="#" class="button" id="registerLink">Register here</a></p>
+    </form>
+
+    <!-- Registration Form (hidden by default) -->
+    <form id="registrationForm" class="form" style="display: none;">
+      <h2>Register</h2>
+      <div class="form-control">
+        <label for="regUsername">Username:</label>
+        <input type="text" id="regUsername" required>
+      </div>
+      <div class="form-control">
+        <label for="regPassword">Password:</label>
+        <input type="password" id="regPassword" required>
+      </div>
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="#" class="button"  id="loginLink">Login here</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // For demonstration purposes, let's assume successful login
+     // For demonstration purposes, let's assume successful login
+     if (username === "user" && password === "password") {
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid username or password");
+      }
+    });
+
+    document.getElementById("registerLink").addEventListener("click", function(event) {
+      event.preventDefault();
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("registrationForm").style.display = "block";
+    });
+
+    document.getElementById("loginLink").addEventListener("click", function(event) {
+      event.preventDefault();
+      document.getElementById("registrationForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    });
+
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const regUsername = document.getElementById("regUsername").value;
+      const regPassword = document.getElementById("regPassword").value;
+
+      // Here you would make a request to the registration API
+      // For demonstration purposes, let's assume successful registration
+      alert("Registration successful! Please login.");
+      window.location.href = "index.html";
+      document.getElementById("registrationForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    });
+  </script>
+</body>
+</html>
